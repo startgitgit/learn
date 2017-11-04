@@ -8,6 +8,7 @@ public class Program {
         getData(ex_num);
         getData(ex_int);//编译错误
         getData(ex_string);
+        System.out.println(FX.TEST);
 
     }
 
