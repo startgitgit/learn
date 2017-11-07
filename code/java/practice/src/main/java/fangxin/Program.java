@@ -1,6 +1,7 @@
 package fangxin;
 
 public class Program {
+
     public static void main(String[] args) {
         FX<Number> ex_num = new FX<Number>(100);
         FX<Integer> ex_int = new FX<Integer>(200);
@@ -8,7 +9,9 @@ public class Program {
         getData(ex_num);
         getData(ex_int);//编译错误
         getData(ex_string);
+
         System.out.println(FX.TEST);
+
 
     }
 
