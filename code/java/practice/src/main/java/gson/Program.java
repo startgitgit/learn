@@ -2,6 +2,7 @@ package gson;
 
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -12,16 +13,19 @@ import java.util.ArrayList;
 public class Program {
     public static void main(String[] args) {
         Person person = new Person();
-        person.setName("zhouyanqing");
+        person.setName("Mr{2222222222-fdsfasfs}");
         person.setAge(34);
 
-        List<Person> personList = new ArrayList<Person>();
-        personList.add(person);
-        personList.add(person);
+        Person person1 = new Person();
 
 
-        Gson gson = new Gson();
-        String str = gson.toJson(personList);
+
+        Gson gson = new GsonBuilder()
+                .disableHtmlEscaping()
+                .create();
+        person1.setName(gson.toJson(person));
+
+        String str = gson.toJson(person1);
         System.out.println(str);
     }
 }
