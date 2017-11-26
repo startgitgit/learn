@@ -11,19 +11,19 @@ import java.util.ArrayList;
  * Created by mac on 2017/6/25.
  */
 public class Program {
+    public static final Gson gson = new Gson();
+
     public static void main(String[] args) {
         Person person = new Person();
-        person.setName("Mr{2222222222-fdsfasfs}");
-        person.setAge(34);
-
         Person person1 = new Person();
+        person1.setName(person.getName());
+        person1.setAge(person.getAge());
 
-
-
-        Gson gson = new GsonBuilder()
+        //GsonBuilder可以
+       /* Gson gson = new GsonBuilder()
                 .disableHtmlEscaping()
                 .create();
-        person1.setName(gson.toJson(person));
+        person1.setName(gson.toJson(person));*/
 
         String str = gson.toJson(person1);
         System.out.println(str);

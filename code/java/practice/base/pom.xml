@@ -65,10 +65,23 @@
       <version>2.1.v20100127</version>
     </dependency>
 
-    <dependency>
+   <!-- <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
       <version>2.4</version>
+    </dependency>-->
+
+    <dependency>
+      <groupId>org.apache.any23</groupId>
+      <artifactId>apache-any23-encoding</artifactId>
+      <version>2.1</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.ibm.icu/icu4j -->
+    <dependency>
+      <groupId>com.ibm.icu</groupId>
+      <artifactId>icu4j</artifactId>
+      <version>59.1</version>
     </dependency>
 
   </dependencies>

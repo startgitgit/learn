@@ -8,8 +8,10 @@
     <servlet-name>HelloServlet</servlet-name>
     <servlet-class>jetty.HelloServlet</servlet-class>
   </servlet>
+
   <servlet-mapping>
     <servlet-name>HelloServlet</servlet-name>
     <url-pattern>/hello/*</url-pattern>
   </servlet-mapping>
+
 </web-app>

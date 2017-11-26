@@ -1,15 +1,33 @@
 package encodeing;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
+
+
+import com.ibm.icu.text.CharsetDetector;
+import com.ibm.icu.text.CharsetMatch;
+
+import java.io.*;
+import java.nio.charset.UnsupportedCharsetException;
 
 public class Program {
     public static void main(String[] args) {
-        String filePath = "c:" + File.separator + "LibAntiPrtSc_INFORMATION.log";
+        String filePath = "c:" + File.separator + "encode.txt";
         try {
-            String fileEncode = codeString(filePath);
-            System.out.println(fileEncode);
+
+            FileInputStream inputStream = new FileInputStream(filePath);
+
+            byte[] content_byte = new byte[200];
+            inputStream.read(content_byte);
+
+            String content_string = new String(content_byte,"ISO-8859-1");
+            System.out.println(content_string);
+
+
+
+            InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(filePath),"GBK");
+
+            char[] cs = new char[200];
+            inputStreamReader.read(cs);
+            System.out.println(cs);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -41,4 +59,5 @@ public class Program {
 
         return code;
     }
+
 }

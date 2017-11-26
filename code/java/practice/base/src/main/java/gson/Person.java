@@ -5,7 +5,7 @@ package gson;
  */
 public class Person {
     private String name;
-    private int age;
+    private Long age;
 
     public String getName() {
         return name;
@@ -15,11 +15,11 @@ public class Person {
         this.name = name;
     }
 
-    public int getAge() {
+    public Long getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Long age) {
         this.age = age;
     }
 

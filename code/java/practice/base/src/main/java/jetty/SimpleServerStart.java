@@ -24,10 +24,7 @@ public class SimpleServerStart {
         System.out.println(webAppContext.getResourceBase());
         System.out.println(webAppContext.getBaseResource());
 
-
         server.start();
-
-
         System.out.println("server is  start, port is " + port + "............");
     }
 }
