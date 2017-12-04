@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>系统提示_51CTO下载中心_IT技术资料免费下载</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link href="http://down.51cto.com/css/Down_Head.css" rel="stylesheet" type="text/css" />
+<link href="http://down.51cto.com/css/" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="http://down.51cto.com/css/header_master_top.css">
+<script src="http://down.51cto.com/js/message.js?v=0.0.6" type="text/javascript"></script>
+<script src="http://images.51cto.com/images/homepage/index_1_down.js"></script>
+</head>
+
+<body>
+
+<div id="append_parent"></div>
+
+<div id="home_top">    <div class="top_nav">        <div class="left"><a target="_blank" href="http://www.51cto.com">51CTO首页</a><img height="25" align="absmiddle" width="16" style="padding-top: 2px;" src="http://home.51cto.com/public/themes/blue/images/top_bg_xian.gif"><a target="_blank" href="http://www.51cto.com/col/35/" onmouseout="popupClose();" onmouseover="show(1,this);">技术频道<img align="absmiddle" style="padding-left: 4px;" src="http://images.51cto.com/images/art/top_images/nav_ico1.gif"></a><img height="25" align="absmiddle" width="16" src="http://home.51cto.com/public/themes/blue/images/top_bg_xian.gif"><a target="_blank" href="http://www.51cto.com" onmouseout="popupClose();" onmouseover="show(2,this);">51CTO旗下网站<img align="absmiddle" style="padding-left: 4px;" src="http://images.51cto.com/images/art/top_images/nav_ico1.gif"></a><img height="25" align="absmiddle" width="16" src="http://home.51cto.com/public/themes/blue/images/top_bg_xian.gif"><a target="_blank" href="http://www.51cto.com/about/map.htm">地图</a>        </div>        <div class="right">            <div class="more"><img height="16" align="absmiddle" width="27" src="http://home.51cto.com/public/themes/blue/images/top_shequ.gif">社区：<a target="_blank" href="http://bbs.51cto.com">论坛</a><a target="_blank" href="http://blog.51cto.com">博客</a><a target="_blank" href="http://down.51cto.com">下载</a><a target="_blank" href="http://book.51cto.com/">读书</a><a href="javascript:viod(0);" onmouseout="popupClose()" onmouseover="show(3,this)">更多<img align="absmiddle" style="padding-left: 4px;" src="http://images.51cto.com/images/art/top_images/nav_ico1.gif"></a>            </div>            <span id="login_status"><div class="login" id="login_status"></div>    </span>                </div>    </div></div>
+
+<div class="subMenu1" id="s1" onmouseover="popupNoClose();" onmouseout="popupClose();">
+<ul>
+<li><a href="http://network.51cto.com" target="_blank">组网</a></li>
+<li><a href="http://netsecurity.51cto.com" target="_blank">安全</a></li>
+<li><a href="http://developer.51cto.com" target="_blank">开发</a></li>
+<li><a href="http://database.51cto.com" target="_blank">数据库</a></li>
+<li><a href="http://server.51cto.com" target="_blank">服务器</a></li>
+<li><a href="http://os.51cto.com" target="_blank">系统</a></li>
+<li><a href="http://virtual.51cto.com" target="_blank">虚拟化</a></li>
+<li><a href="http://cloud.51cto.com" target="_blank">云计算</a></li>
+
+<li><a href="http://developer.51cto.com/embed/" target="_blank">嵌入式</a></li>
+</ul>
+</div>
+
+<div class="subMenu2" id="s2" onmouseover="popupNoClose()" onmouseout="popupClose()">
+<ul>
+<li><a href="http://www.51cto.com" target="_blank" title="中国领先的IT技术网站">51CTO.COM</a></li>
+<li><a href="http://www.cioage.com" target="_blank" title="中国首个专门服务于CIO的专业网站">CIOage.com</a></li>
+<li><a href="http://www.watchstor.com/" target="_blank"  title="领先的中文存储网络媒体">WatchStor.com</a></li>
+<li><a href="http://www.hc3i.cn/" target="_blank"  title="中国首家专注于数字医疗及医疗信息化的专业网站">HC3i.cn</a></li>
+</ul>
+</div>
+
+<div class="subMenu3" id="s3" onmouseover="popupNoClose()" onmouseout="popupClose()">
+<ul>
+<li><a href="http://home.51cto.com" target="_blank">家园</a></li>
+<li><a href="http://t.51cto.com" target="_blank">微博</a></li>
+<li><a href="http://blog.51cto.com" target="_blank">博客</a></li>
+<li><a href="http://bbs.51cto.com" target="_blank">论坛</a></li>
+<li><a href="http://down.51cto.com" target="_blank">下载</a></li>
+<li><a href="http://selftest.51cto.com" target="_blank">自测</a></li>
+<li><a href="http://doctor.51cto.com" target="_blank">门诊</a></li>
+
+<li><a href="http://blog.51cto.com/newsletter/" target="_blank">周刊</a></li>
+<li><a href="http://book.51cto.com" target="_blank">读书</a></li>
+<li><a href="http://g.51cto.com" target="_blank">技术圈</a></li>
+<li><a href="http://zhidao.51cto.com" target="_blank">知道</a></li>
+</ul>
+</div>
+
+<div id="head">
+<div class="subNav">
+<div class="logo"><a href="http://down.51cto.com"><img src="http://down.51cto.com/images/Down_logo.gif" border="0" /></a><h1>51CTO下载中心</h1></div>
+<div style="cursor: pointer; float: left; padding: 58px 0pt 0pt 10px; "><a href="javascript:addFavor();" style="color:#3B6C00">收藏本站</a></div>
+
+<div class="daohang"><a href="http://down.51cto.com/top" target="_blank">热门下载</a><a href="http://down.51cto.com/detail_list.php?c_it=&c_re=2&c_co=&c_in=&uid=&keywords=&sortby=t&typeby=&z_p=&t_j=" target="_blank">技术文档</a>
+<a href="http://down.51cto.com/detail_list.php?c_it=&c_re=3&c_co=&c_in=&uid=&keywords=&sortby=t&typeby=&z_p=&t_j=" target="_blank">解决方案</a><a href="http://down.51cto.com/detail_list.php?c_it=&c_re=4&c_co=&c_in=&uid=&keywords=&sortby=t&typeby=&z_p=&t_j=" target="_blank">源码</a><a href="http://down.51cto.com/detail_list.php?c_it=&c_re=6&c_co=&c_in=&uid=&keywords=&sortby=t&typeby=&z_p=&t_j=" target="_blank">电子书</a><a href="http://down.51cto.com/detail_list.php?c_it=&c_re=7&c_co=&c_in=&uid=&keywords=&sortby=t&typeby=&z_p=&t_j=" target="_blank">白皮书</a><a href="http://down.51cto.com/detail_list.php?c_it=&c_re=8&c_co=&c_in=&uid=&keywords=&sortby=t&typeby=&z_p=&t_j=" target="_blank">软件</a></div>
+</div>
+<div class="nav"><a href="http://down.51cto.com" >首 页</a><a href="http://down.51cto.com/detail" >下载搜索</a><a href="http://down.51cto.com/commend" >推荐下载</a><a href="http://down.51cto.com/top" >下载排行</a><a href="http://down.51cto.com/tag" >标签搜索</a><a href="http://down.51cto.com/zt" >下载专题</a>
+
+<span class="upload"><img src="http://down.51cto.com/images/upload_1.gif" onmouseover="this.src='http://down.51cto.com/images/upload_2.gif'" onmouseout="this.src='http://down.51cto.com/images/upload_1.gif'" onclick="javascript:location.href='http://down.51cto.com/upload'"/></span>
+</div>
+<div class="tag"><dl>
+<dt><a href="http://down.51cto.com">下载中心首页</a> &gt; 系统提示</dt>
+
+</dl></div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div style="margin:0 auto;font-size:16px">
+<center>提示：链接已超时，请重新下载</center>
+</div>
+<br>
+<br>
+
+<br><br>
+<br><br><br><br><br><br>
+
+<div class="foot">Copyright By <a href="http://www.51cto.com" target="_blank">51CTO.COM</a> 版权所有</div>
+
+</body>
+</html>
