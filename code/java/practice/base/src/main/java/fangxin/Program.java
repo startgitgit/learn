@@ -12,6 +12,10 @@ public class Program {
 
         System.out.println(FX.TEST);
 
+        Erasure<Person> erasure = new Erasure<Person>();
+        erasure.Erasure(Person.class);
+        erasure.getT().setAge(18L);
+
 
     }
 
