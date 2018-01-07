@@ -1,27 +1,16 @@
 package fangxin;
 
-public class Erasure<T> {
-    private Class<T> clazz;
-    private T t;
+public class Erasure {
 
-    public void Erasure(Class<T> aa) {
-        this.clazz = aa;
+    public <T> Erasure(Class<T> clazz) {
         try {
-            t = clazz.newInstance();
+            T t = clazz.newInstance();
             System.out.println(t instanceof Person);
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-
     }
 
-    public T getT() {
-        return t;
-    }
-
-    public void setT(T t) {
-        this.t = t;
-    }
 }
