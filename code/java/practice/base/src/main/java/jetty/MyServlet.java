@@ -10,22 +10,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(name="helloUser2", urlPatterns={"/getUser","/userInfo"},loadOnStartup=1)
+@WebServlet(name = "helloUser2", urlPatterns = {"/getUser", "/userInfo"}, loadOnStartup = 1)
 public class MyServlet extends HttpServlet {
 
- 
-	private static final long serialVersionUID = 1L;
 
-	@Override
+    private static final long serialVersionUID = 1L;
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("text/html;charset=UTF-8");
-		try{
-        	PrintWriter out = response.getWriter();
-			out.println("<h2>Hello @WebServlet</h2>");
+        try {
+            PrintWriter out = response.getWriter();
+            out.println("<h2>Hello @WebServlet</h2>");
         } catch (IOException ioe) {
-			
+
         }
     }
 
-    
+
 }

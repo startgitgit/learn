@@ -6,7 +6,7 @@ import org.eclipse.jetty.webapp.WebAppContext;
 public class SimpleServerStart {
     public static void main(String[] args) throws Exception {
         int port = 8080;
-        String webapp = "C:/Learn/mygithub/learn/code/java/practice/src/main/webapp";
+        String webapp = "C:/Learn/mygithub/learn/code/java/practice/base/src/main/webapp";
         Server server = new Server(port);
         WebAppContext webAppContext = new WebAppContext();
 
