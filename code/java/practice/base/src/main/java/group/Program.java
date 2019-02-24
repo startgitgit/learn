@@ -1,8 +1,9 @@
 package group;
 
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 /**
  * @Author: zhouyq
@@ -15,7 +16,7 @@ public class Program {
     public static void main(String[] args) {
         List<Integer> data = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
         int length = data.size();
-        int size = 5;
+        int size = 10;
         for (int i = 0; i < length; i = i + size) {
             if ((i + size) > length) {
                 System.out.println(data.subList(i, length));
@@ -23,5 +24,17 @@ public class Program {
                 System.out.println(data.subList(i, i + size));
             }
         }
+        data.forEach(System.out::println);
+
+
+        LinkedList<Integer> ll = new LinkedList<>(data);
+        ll.forEach(System.out::println);
+        List<Integer> collect = ll.stream().filter(x -> true).collect(Collectors.toList());
+
+        System.currentTimeMillis();
+        Calendar.getInstance().getTimeInMillis();
+
+
+
     }
 }
