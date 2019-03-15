@@ -31,8 +31,8 @@ public class Program {
         ll.forEach(System.out::println);
         List<Integer> collect = ll.stream().filter(x -> true).collect(Collectors.toList());
 
-        System.currentTimeMillis();
-        Calendar.getInstance().getTimeInMillis();
+        System.out.println(System.currentTimeMillis());
+        System.out.println(Calendar.getInstance().getTimeInMillis());
 
 
 

@@ -25,6 +25,9 @@ public class Program
 
         fieldName.set(o,"zhou");
         fieldAge.set(o,34);
+
+        System.out.println(fieldName.get(o));
+
         System.out.println(o);
 
         String alarmLevel = "1,2,3,4";

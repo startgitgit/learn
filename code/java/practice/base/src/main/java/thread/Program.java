@@ -1,5 +1,6 @@
 package thread;
 
+import javax.annotation.PostConstruct;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -16,13 +17,14 @@ public class Program {
                     threadPoolExecutor.getQueue().size()+"，已执行玩别的任务数目："+threadPoolExecutor.getCompletedTaskCount());
         }
         threadPoolExecutor.shutdown();
+
+
         
 
 
 
     }
 }
-
 class MyTask implements Runnable {
     private int taskNum;
 
@@ -31,10 +33,11 @@ class MyTask implements Runnable {
     }
 
 
+    @Override
     public void run() {
         System.out.println("正在执行task "+ taskNum);
         try {
-            Thread.currentThread().sleep(4000);
+            Thread.sleep(4000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
