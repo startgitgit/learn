@@ -1,5 +1,8 @@
 package fangxin;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Program {
 
     public static void main(String[] args) {
@@ -14,7 +17,11 @@ public class Program {
 
         Erasure erasure = new Erasure(Person.class);
 
+        // 泛型数组创建
 
+        Object result = Array.newInstance(Integer.class, 10);
+
+        Arrays.fill((Integer[])result,20);
 
     }
 
