@@ -2,9 +2,9 @@ package fangxin;
 
 /**
  * @Author: zhouyq
- * @Date: 2019/4/7 19:28
+ * @Date: 2019/4/7 21:54
  * @Version 1.0
  * @Description
  */
-public class Fruit extends Food{
+public class Food {
 }

@@ -25,6 +25,10 @@ public class Program {
 
         Arrays.fill((Integer[])result,20);
 
+
+
+
+
         List<? super   Number> list = new ArrayList<>();
         list.add(1);
         list.add(1.0);
@@ -32,6 +36,7 @@ public class Program {
         List<? super Fruit> fruits = new ArrayList<>();
         fruits.add(new Apple());
         fruits.add(new Banana());
+        fruits.add(new Fruit());
 
 
     }
