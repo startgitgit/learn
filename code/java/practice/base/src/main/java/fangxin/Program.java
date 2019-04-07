@@ -1,7 +1,9 @@
 package fangxin;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Program {
 
@@ -22,6 +24,15 @@ public class Program {
         Object result = Array.newInstance(Integer.class, 10);
 
         Arrays.fill((Integer[])result,20);
+
+        List<? super   Number> list = new ArrayList<>();
+        list.add(1);
+        list.add(1.0);
+
+        List<? super Fruit> fruits = new ArrayList<>();
+        fruits.add(new Apple());
+        fruits.add(new Banana());
+
 
     }
 
