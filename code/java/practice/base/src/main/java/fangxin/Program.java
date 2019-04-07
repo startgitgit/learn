@@ -26,7 +26,11 @@ public class Program {
         Arrays.fill((Integer[])result,20);
 
 
+        List<Integer> integers = Arrays.asList(1, 2, 3);
 
+        List<? extends  Number> aa = integers;
+
+        Number number = aa.get(0);
 
 
         List<? super   Number> list = new ArrayList<>();
