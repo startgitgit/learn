@@ -32,6 +32,8 @@ public class Program {
 
         Number number = aa.get(0);
 
+        List<? extends  Number> bb = new ArrayList<Integer>();
+
 
         List<? super   Number> list = new ArrayList<>();
         list.add(1);
