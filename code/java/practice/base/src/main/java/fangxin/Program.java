@@ -15,6 +15,7 @@ public class Program {
         Erasure erasure = new Erasure(Person.class);
 
 
+
     }
 
     public static void getData(FX<?> temp) { //此行若把Number换为“？”编译通过

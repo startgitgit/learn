@@ -13,12 +13,12 @@ public class Program
         Student.testSetOrder();
         //反射
         System.out.println("2 反射 ");
-        Class<?> class1= Class.forName("reflect.Student");
-        System.out.println("类名称：" + class1.getSimpleName());
+        Class<?> classSutdent= Class.forName("reflect.Student");
+        System.out.println("类名称：" + classSutdent.getSimpleName());
 
-        Object o = class1.newInstance();
-        Field  fieldName = class1.getDeclaredField("name");
-        Field  fieldAge = class1.getDeclaredField("age");
+        Object o = classSutdent.newInstance();
+        Field  fieldName = classSutdent.getDeclaredField("name");
+        Field  fieldAge = classSutdent.getDeclaredField("age");
 
         fieldName.setAccessible(true);
         fieldAge.setAccessible(true);
@@ -29,9 +29,5 @@ public class Program
         System.out.println(fieldName.get(o));
 
         System.out.println(o);
-
-        String alarmLevel = "1,2,3,4";
-        String[] arr = alarmLevel.split(",");
-        System.out.println(arr.toString());
     }
 }

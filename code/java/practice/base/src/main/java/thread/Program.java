@@ -33,7 +33,6 @@ class MyTask implements Runnable {
     }
 
 
-    @Override
     public void run() {
         System.out.println("正在执行task "+ taskNum);
         try {
