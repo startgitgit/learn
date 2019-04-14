@@ -1,4 +1,4 @@
-package fangxin;
+package model;
 
 /**
  * @Author: zhouyq

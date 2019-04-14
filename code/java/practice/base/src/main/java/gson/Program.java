@@ -1,9 +1,8 @@
 package gson;
 
 
-import com.google.common.base.Optional;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import model.Person;
 
 import java.util.*;
 

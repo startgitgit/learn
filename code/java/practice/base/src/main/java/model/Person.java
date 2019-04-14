@@ -1,4 +1,4 @@
-package gson;
+package model;
 
 /**
  * Created by mac on 2017/6/25.

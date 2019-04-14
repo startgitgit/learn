@@ -1,5 +1,9 @@
 package fangxin;
 
+import model.Apple;
+import model.Banana;
+import model.Fruit;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
