@@ -1,5 +1,7 @@
 package fangxin;
 
+import model.Person;
+
 public class Erasure {
 
     public <T> Erasure(Class<T> clazz) {

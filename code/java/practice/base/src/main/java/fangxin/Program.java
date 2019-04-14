@@ -3,6 +3,7 @@ package fangxin;
 import model.Apple;
 import model.Banana;
 import model.Fruit;
+import model.Person;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
