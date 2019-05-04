@@ -1,6 +1,7 @@
 package reflect;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 
 
 public class Program
@@ -19,12 +20,16 @@ public class Program
         Object o = classSutdent.newInstance();
         Field  fieldName = classSutdent.getDeclaredField("name");
         Field  fieldAge = classSutdent.getDeclaredField("age");
+        Field  fieldList = classSutdent.getDeclaredField("list");
 
         fieldName.setAccessible(true);
         fieldAge.setAccessible(true);
+        fieldList.setAccessible(true);
 
         fieldName.set(o,"zhou");
         fieldAge.set(o,34);
+        ArrayList<Integer> list = (ArrayList<Integer>) fieldList.get(o);
+        list.remove(0);
 
         System.out.println(fieldName.get(o));
 

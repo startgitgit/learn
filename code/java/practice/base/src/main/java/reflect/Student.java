@@ -8,6 +8,7 @@ import java.util.*;
 public class Student {
     private String name;
     private int age;
+    private  ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1,2,3));
 
     @Override
     public boolean equals(Object o) {
@@ -33,7 +34,7 @@ public class Student {
         this.age = age;
     }
 
-    public String getName() {
+    /*public String getName() {
         return name;
     }
 
@@ -47,7 +48,7 @@ public class Student {
 
     public void setAge(int age) {
         this.age = age;
-    }
+    }*/
 
     @Override
     public String toString() {

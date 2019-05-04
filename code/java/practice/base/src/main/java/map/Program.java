@@ -1,5 +1,7 @@
 package map;
 
+import org.intellij.lang.annotations.Language;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +13,10 @@ import java.util.Map;
  */
 public class Program {
     public static void main(String[] args) {
-        Map<String,Integer> map = new HashMap<>();
+        Map<Integer,String> map = new HashMap<>();
+        map.put(1,"1");
+        map.put(2,"2");
+        map.put(16,"16");
+        map.put(17,"17");
+        }
     }
-}
