@@ -8,7 +8,7 @@ public class Program {
     public Program() {
         ISay say = new ISay() {
             public void sayHello() {
-                System.out.println("hello world");
+                System.out.println("helloHK2 world");
                 Program.this.sayGoodBye();
             }
         };

@@ -23,6 +23,10 @@ public class Populator {
                 to(MyService.class).
                 in(Singleton.class.getName()).
                 build());
+        config.bind(BuilderHelper.link(YourServiceImpl.class).
+                to(YourService.class).
+                in(Singleton.class.getName()).
+                build());
         // And commit
         config.commit();
     }

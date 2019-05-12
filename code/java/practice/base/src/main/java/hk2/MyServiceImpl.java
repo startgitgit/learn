@@ -9,6 +9,6 @@ import javax.inject.Singleton;
 public class MyServiceImpl implements MyService {
 
     public void helloHK2() {
-        System.out.println("hello hk2");
+        System.out.println("my helloHK2 hk2");
     }
 }

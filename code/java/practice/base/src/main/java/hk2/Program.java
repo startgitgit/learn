@@ -17,6 +17,8 @@ public class Program {
         Populator.populate(locator);
         MyService myService = locator.getService(MyService.class);
         myService.helloHK2();
+        YourServiceImpl yourService = locator.getService(YourServiceImpl.class);
+        yourService.helloHK2();
     }
 
 }
