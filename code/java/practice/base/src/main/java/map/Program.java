@@ -13,10 +13,10 @@ import java.util.Map;
  */
 public class Program {
     public static void main(String[] args) {
-        Map<Integer,String> map = new HashMap<>();
-        map.put(1,"1");
-        map.put(2,"2");
-        map.put(16,"16");
-        map.put(17,"17");
-        }
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "1");
+        map.put(2, "2");
+        map.put(16, "16");
+        map.put(17, "17");
     }
+}
