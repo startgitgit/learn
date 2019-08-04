@@ -49,9 +49,9 @@ public class Program {
                 //设置大小，条目数
                 .maximumSize(20)
                 //设置失效时间，创建时间
-                //.expireAfterWrite(10, TimeUnit.SECONDS)
+                .expireAfterWrite(3, TimeUnit.SECONDS)
                 //设置时效时间，最后一次被访问
-                .expireAfterAccess(10, TimeUnit.SECONDS)
+                //.expireAfterAccess(10, TimeUnit.SECONDS)
                 //移除缓存的监听器
                 .removalListener(new RemovalListener<String, String>() {
                     public void onRemoval(RemovalNotification<String, String> notification) {
@@ -74,11 +74,13 @@ public class Program {
         }
 
         try {
-            Thread.sleep(30000);
+            Thread.sleep(10000);
+            System.out.println(cache.getIfPresent("hello"));
             System.out.println(cache.get("hello"));
         } catch (Exception e) {
             e.printStackTrace();
         }
+
 
     }
 }
