@@ -1,9 +1,9 @@
 package stream;
 
-import com.sun.org.apache.xpath.internal.operations.String;
-
 import java.util.*;
+import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @Author: zhouyq
@@ -27,6 +27,18 @@ public class Program {
         //数组转stream
         Arrays.stream(Optional.ofNullable(args).orElse(new String[0])).forEach(System.out::println);
 
+        //reduce
+
+        Optional<Integer> sum = Stream.of(1, 2, 3).reduce((x, y) -> x + y);
+        System.out.println(sum.get());
+
+        Optional<Integer> sum1 = Stream.of(1, 2, 3).reduce(new BinaryOperator<Integer>() {
+            @Override
+            public Integer apply(Integer x, Integer y) {
+                return x + y;
+            }
+        });
+        System.out.println(sum1.get());
 
     }
 }
