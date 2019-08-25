@@ -43,6 +43,7 @@ public class Program {
         a.put(4,2);
 
         String str1 = gson.toJson(a);
+        System.out.println(str1);
 
 
         //GsonBuilder可以

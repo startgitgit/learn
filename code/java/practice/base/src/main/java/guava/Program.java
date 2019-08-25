@@ -1,9 +1,6 @@
 package guava;
 
-import com.google.common.base.CharMatcher;
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
-import com.google.common.base.Strings;
+import com.google.common.base.*;
 import com.google.common.cache.*;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
@@ -81,6 +78,9 @@ public class Program {
             e.printStackTrace();
         }
 
+
+        boolean result = Predicates.isNull().apply(1);
+        System.out.println(result);
 
     }
 }
