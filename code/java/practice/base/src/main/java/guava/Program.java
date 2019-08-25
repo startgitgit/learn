@@ -3,10 +3,15 @@ package guava;
 import com.google.common.base.*;
 import com.google.common.cache.*;
 import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Multimap;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
+
+import static com.google.gson.internal.$Gson$Types.subtypeOf;
 
 /**
  * @Author: zhouyq
@@ -81,6 +86,13 @@ public class Program {
 
         boolean result = Predicates.isNull().apply(1);
         System.out.println(result);
+
+        List<Class<?>> classes = Arrays.asList(
+                Object.class, String.class, Number.class, Long.class);
+//        classes.add(Double.class);
+        Iterable<Class<?>> filter = Iterables.filter(classes, Predicates.subtypeOf(Number.class));
+        filter.forEach(x -> System.out.println(x.getName()));
+
 
     }
 }
