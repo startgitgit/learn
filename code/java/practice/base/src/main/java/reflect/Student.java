@@ -1,10 +1,13 @@
 package reflect;
 
+import lombok.Data;
+
 import java.util.*;
 
 /**
  * CREATED BY mac on 2017/6/16.
  */
+@Data
 public class Student {
     private String name;
     private int age;

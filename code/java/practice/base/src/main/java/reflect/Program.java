@@ -1,6 +1,12 @@
 package reflect;
 
+import org.apache.commons.beanutils.BeanUtils;
+
+import java.beans.BeanInfo;
+import java.beans.Introspector;
+import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 
@@ -34,5 +40,15 @@ public class Program
         System.out.println(fieldName.get(o));
 
         System.out.println(o);
+
+        BeanInfo beanInfo = Introspector.getBeanInfo(Student.class);
+        for (PropertyDescriptor propertyDescriptor : beanInfo.getPropertyDescriptors()) {
+            Method readMethod = propertyDescriptor.getReadMethod();
+            System.out.println(readMethod.invoke(o));
+        }
+
+        String name = BeanUtils.getProperty(o, "name");
+        System.out.println(name);
+
     }
 }
