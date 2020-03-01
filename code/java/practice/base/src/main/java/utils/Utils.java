@@ -1,9 +1,13 @@
 package utils;
 
+import com.google.common.base.Charsets;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.InputStream;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +24,9 @@ public class Utils {
 
         // StringUtils
         System.out.println(StringUtils.equalsIgnoreCase("aa","aa"));
+
+        // IoUtils
+        InputStream inputStream = IOUtils.toInputStream("aa", Charsets.UTF_8);
 
 
     }
