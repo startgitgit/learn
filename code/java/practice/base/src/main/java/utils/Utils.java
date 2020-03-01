@@ -25,7 +25,7 @@ public class Utils {
         // StringUtils
         System.out.println(StringUtils.equalsIgnoreCase("aa","aa"));
 
-        // IoUtils
+        // IOUtils
         InputStream inputStream = IOUtils.toInputStream("aa", Charsets.UTF_8);
 
 
