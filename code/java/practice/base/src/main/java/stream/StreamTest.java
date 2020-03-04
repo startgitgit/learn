@@ -11,7 +11,7 @@ import java.util.stream.Stream;
  * @Version 1.0
  * @Description
  */
-public class Program {
+public class StreamTest {
     public static void main(String[] args) {
 
         //List转stream
@@ -29,10 +29,10 @@ public class Program {
 
         //reduce
 
-        Optional<Integer> sum = Stream.of(1, 2, 3).reduce((x, y) -> x + y);
+        Optional<Integer> sum = java.util.stream.Stream.of(1, 2, 3).reduce((x, y) -> x + y);
         System.out.println(sum.get());
 
-        Optional<Integer> sum1 = Stream.of(1, 2, 3).reduce(new BinaryOperator<Integer>() {
+        Optional<Integer> sum1 = java.util.stream.Stream.of(1, 2, 3).reduce(new BinaryOperator<Integer>() {
             @Override
             public Integer apply(Integer x, Integer y) {
                 return x + y;
