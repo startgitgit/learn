@@ -10,7 +10,7 @@ import java.util.*;
  * @Version 1.0
  * @Description
  */
-public class Program {
+public class MapSet {
     public static void main(String[] args) {
         Map<Integer, String> map = new HashMap<>();
         map.put(1, "1");
@@ -18,16 +18,19 @@ public class Program {
         map.put(16, "16");
         map.put(17, "17");
 
-        HashSet<String> h = new HashSet<>();
-        h.add("a");
-        h.add("b");
-        Iterator<String> iterator = h.iterator();
+        HashSet<String> set = new HashSet<>();
+        set.add("hello");
+        set.add("hello");//重复元素
+        set.add("java");
+        set.add("world");
+        Iterator<String> iterator = set.iterator();
         int index =1;
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
             index++;
         }
-        ArrayList<String> strings = new ArrayList<>(h);
+
+        ArrayList<String> strings = new ArrayList<>(set);
         for (int i = 0; i < strings.size(); i++) {
             System.out.println(strings.get(i));
         }
