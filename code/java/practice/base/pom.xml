@@ -8,7 +8,6 @@
   <packaging>jar</packaging>
 
   <name>practice</name>
-  <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,8 +21,8 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>student</scope>
+      <version>4.12</version>
+      <scope>test</scope>
     </dependency>
 
     <dependency>
@@ -65,11 +64,6 @@
       <version>2.1.v20100127</version>
     </dependency>
 
-   <!-- <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-      <version>2.4</version>
-    </dependency>-->
 
     <dependency>
       <groupId>org.apache.any23</groupId>
@@ -77,7 +71,6 @@
       <version>2.1</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/com.ibm.icu/icu4j -->
     <dependency>
       <groupId>com.ibm.icu</groupId>
       <artifactId>icu4j</artifactId>
@@ -129,6 +122,8 @@
       <artifactId>jbcrypt</artifactId>
       <version>0.4</version>
     </dependency>
+
+
 
   </dependencies>
 
