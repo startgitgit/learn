@@ -22,4 +22,9 @@ public class ProgramTest {
     public void main() {
         Program.main(null);
     }
+
+    @Test
+    public void  test() {
+        assertTrue(false);
+    }
 }
