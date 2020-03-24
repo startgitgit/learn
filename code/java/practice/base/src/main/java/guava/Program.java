@@ -11,8 +11,6 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
-import static com.google.gson.internal.$Gson$Types.subtypeOf;
-
 /**
  * @Author: zhouyq
  * @Date: 2019/8/3 23:02
@@ -56,12 +54,13 @@ public class Program {
                 //.expireAfterAccess(10, TimeUnit.SECONDS)
                 //移除缓存的监听器
                 .removalListener(new RemovalListener<String, String>() {
+                    @Override
                     public void onRemoval(RemovalNotification<String, String> notification) {
                         System.out.println("有缓存数据被移除了");
                     }
                 })
-                //缓存构建的回调
-                .build(new CacheLoader<String, String>() {//加载缓存
+                // 缓存构建的回调
+                .build(new CacheLoader<String, String>() {
                     @Override
                     public String load(String key) throws Exception {
                         return key + "-" + "world";
@@ -70,13 +69,12 @@ public class Program {
 
         try {
             System.out.println(cache.get("hello"));
-//            cache.invalidateAll();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(10000);
+            Thread.sleep(1000);
             System.out.println(cache.getIfPresent("hello"));
             System.out.println(cache.get("hello"));
         } catch (Exception e) {
@@ -86,10 +84,8 @@ public class Program {
 
         boolean result = Predicates.isNull().apply(1);
         System.out.println(result);
-
         List<Class<?>> classes = Arrays.asList(
                 Object.class, String.class, Number.class, Long.class);
-//        classes.add(Double.class);
         Iterable<Class<?>> filter = Iterables.filter(classes, Predicates.subtypeOf(Number.class));
         filter.forEach(x -> System.out.println(x.getName()));
 
