@@ -18,20 +18,43 @@ import java.util.concurrent.Executors;
  * @Version 1.0
  * @Description
  */
-public class Program {
+public class AppFuture {
 
+    public Double completableFutureTest1() {
+        CompletableFuture<Double> futurePrice = new CompletableFuture<>();
+        Runnable runnable = () -> {
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            futurePrice.complete(23.55d);
+        };
+        ThreadSerivce threadSerivce = ThreadSerivce.getInstance();
+        threadSerivce.excute(runnable);
+        threadSerivce.shutdown();
 
-    public static void main(String[] args) {
-        completableFutureTest1();
-//        completableFutureTest2();
+        //do anything you want, 当前线程不被阻塞
+        System.out.println(111);
 
+        //线程任务完成的话，执行回调函数，不阻塞后续操作
+        futurePrice.whenComplete((aDouble, throwable) -> {
+            System.out.println(aDouble);
+            //do something else
+        });
+
+        try {
+            return futurePrice.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    private static void completableFutureTest2() {
-        CompletableFuture<Integer> future = CompletableFuture.
-                supplyAsync(Program::getInteger).thenApplyAsync(i -> i * 10).
+    public void completableFutureTest2() {
+        java.util.concurrent.CompletableFuture future = java.util.concurrent.CompletableFuture.
+                supplyAsync(AppFuture::getInteger).thenApplyAsync(i -> i * 10).
                 whenComplete((i, throwable) -> System.out.println(i));
-
         try {
             System.out.println(future.get());
         } catch (InterruptedException | ExecutionException e) {
@@ -51,62 +74,24 @@ public class Program {
         return 1;
     }
 
-    private static void completableFutureTest1() {
-        CompletableFuture<Double> futurePrice = getPriceAsync();
-
-        //do anything you want, 当前线程不被阻塞
-        System.out.println(111);
-
-        //线程任务完成的话，执行回调函数，不阻塞后续操作
-        futurePrice.whenComplete((aDouble, throwable) -> {
-            System.out.println(aDouble);
-            //do something else
-        });
-    }
-
-    static CompletableFuture<Double> getPriceAsync() {
-        CompletableFuture<Double> futurePrice = new CompletableFuture<>();
-        Runnable runnable = () -> {
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            futurePrice.complete(23.55);
-        };
-        ThreadSerivce threadSerivce = ThreadSerivce.getInstance();
-        threadSerivce.excute(runnable);
-        threadSerivce.shutdown();
-        return futurePrice;
-    }
-
-    static void sleep(long millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
 
     static void other() {
         long start = System.currentTimeMillis();
         // 结果集
         List<String> list = new ArrayList<>();
-
         ExecutorService executorService = Executors.newFixedThreadPool(10);
-
         List<Integer> taskList = Arrays.asList(2, 1, 3, 4, 5, 6, 7, 8, 9, 10);
         // 全流式处理转换成CompletableFuture[]+组装成一个无返回值CompletableFuture，join等待执行完毕。返回结果whenComplete获取
-        CompletableFuture[] cfs = taskList.stream()
-                .map(integer -> CompletableFuture.supplyAsync(() -> calc(integer), executorService)
+        java.util.concurrent.CompletableFuture[] cfs = taskList.stream()
+                .map(integer -> java.util.concurrent.CompletableFuture.supplyAsync(() -> calc(integer), executorService)
                         .thenApply(h -> Integer.toString(h))
                         .whenComplete((s, e) -> {
                             System.out.println("任务" + s + "完成!result=" + s + "，异常 e=" + e + "," + new Date());
                             list.add(s);
                         })
-                ).toArray(CompletableFuture[]::new);
+                ).toArray(java.util.concurrent.CompletableFuture[]::new);
         // 封装后无返回值，必须自己whenComplete()获取
-        CompletableFuture.allOf(cfs).join();
+        java.util.concurrent.CompletableFuture.allOf(cfs).join();
         System.out.println("list=" + list + ",耗时=" + (System.currentTimeMillis() - start));
     }
 
