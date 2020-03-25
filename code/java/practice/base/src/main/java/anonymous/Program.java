@@ -6,12 +6,9 @@ public class Program {
     }
 
     public Program() {
-        ISay say = new ISay() {
-            @Override
-            public void sayHello() {
-                System.out.println("helloHK2 world");
-                Program.this.sayGoodBye();
-            }
+        ISay say = () -> {
+            System.out.println("helloHK2 world");
+            Program.this.sayGoodBye();
         };
         say.sayHello();
     }
