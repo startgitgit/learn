@@ -31,8 +31,8 @@ public class MapSet {
         }
 
         ArrayList<String> strings = new ArrayList<>(set);
-        for (int i = 0; i < strings.size(); i++) {
-            System.out.println(strings.get(i));
+        for (String string : strings) {
+            System.out.println(string);
         }
 
 
