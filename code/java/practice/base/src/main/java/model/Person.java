@@ -3,11 +3,11 @@ package model;
 /**
  * Created by mac on 2017/6/25.
  */
-public class Person implements  Comparable<Person> {
+public class Person implements Comparable<Person> {
     private String name;
-    private Long age;
+    private int age;
 
-    public Person(String name, Long age) {
+    public Person(String name, int age) {
         this.name = name;
         this.age = age;
     }
@@ -20,26 +20,25 @@ public class Person implements  Comparable<Person> {
         this.name = name;
     }
 
-    public Long getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(Long age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
     @Override
-    public String toString()
-    {
-        return name + ":" +age;
+    public String toString() {
+        return name + ":" + age;
     }
 
-    /*@Override
+    @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + name.hashCode();
-        result = prime * result + age.intValue();
+        result = prime * result + age;
         return result;
     }
 
@@ -63,11 +62,12 @@ public class Person implements  Comparable<Person> {
         }
 
         return true;
-    }*/
+    }
 
 
-    public int compareTo(Person person){
-       Long r = this.age - person.age;
-       return  r.intValue();
+    @Override
+    public int compareTo(Person person) {
+        long r = this.age - person.age;
+        return (int) r;
     }
 }

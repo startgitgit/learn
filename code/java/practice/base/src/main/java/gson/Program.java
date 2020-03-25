@@ -10,11 +10,11 @@ import java.util.*;
  * Created by mac on 2017/6/25.
  */
 public class Program {
-    public static final Gson gson = new Gson();
+    public static final Gson GSON = new Gson();
 
     public static void main(String[] args) {
-        Person person = new Person("zhou",30L);
-        Person person1 = new Person("zhou",31L);
+        Person person = new Person("zhou",30);
+        Person person1 = new Person("zhou",31);
 
         HashSet<Person> set= new HashSet<Person>();
         set.add(person);
@@ -27,9 +27,9 @@ public class Program {
         TreeSet<Person> treeSet = new TreeSet<Person>();
         treeSet.add(person);
         treeSet.add(person1);
-        treeSet.add(new Person("zhou",1L));
+        treeSet.add(new Person("zhou",1));
 
-        treeSet.remove(new Person("zhou",30L));
+        treeSet.remove(new Person("zhou",30));
 
 
 
@@ -42,7 +42,7 @@ public class Program {
         a.put(10,2);
         a.put(4,2);
 
-        String str1 = gson.toJson(a);
+        String str1 = GSON.toJson(a);
         System.out.println(str1);
 
 
@@ -52,7 +52,7 @@ public class Program {
                 .create();
         person1.setName(gson.toJson(person));*/
 
-        String str = gson.toJson(person1);
+        String str = GSON.toJson(person1);
         System.out.println(str);
     }
 }

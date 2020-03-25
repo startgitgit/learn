@@ -13,9 +13,11 @@ import java.util.Collections;
  */
 public class Program {
     public static void main(String[] args) {
-        ArrayList<Person> list = new ArrayList<>();
-        list.add(new Person("aa",18L));
-        list.add(new Person("bb",2L));
-        Collections.sort(list);
+        ArrayList<Person> peoples = new ArrayList<>();
+        peoples.add(new Person("aa",18));
+        peoples.add(new Person("bb",2));
+        peoples.add(new Person("bb",12));
+        Collections.sort(peoples);
+        peoples.forEach(System.out::println);
     }
 }
