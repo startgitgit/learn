@@ -30,12 +30,7 @@ public class Program {
 
         String hashed05 = BCrypt.hashpw(password, BCrypt.gensalt());
         System.out.println(hashed05);
-// gensalt's log_rounds parameter determines the complexity
-// the work factor is 2**log_rounds, and the default is 10
         String hashed2 = BCrypt.hashpw(password, BCrypt.gensalt(12));
-
-// Check that an unencrypted password matches one that has
-// previously been hashed
         String candidate = "12345";
 
         if (BCrypt.checkpw(candidate, hashed)) {
