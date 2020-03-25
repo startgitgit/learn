@@ -38,9 +38,10 @@ public class Program {
 // previously been hashed
         String candidate = "12345";
 
-        if (BCrypt.checkpw(candidate, hashed))
+        if (BCrypt.checkpw(candidate, hashed)) {
             System.out.println("It matches");
-        else
+        } else {
             System.out.println("It does not match");
+        }
     }
 }

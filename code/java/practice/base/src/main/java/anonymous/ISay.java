@@ -1,4 +1,4 @@
-package anonymousCass;
+package anonymous;
 
 public interface ISay {
     void sayHello();

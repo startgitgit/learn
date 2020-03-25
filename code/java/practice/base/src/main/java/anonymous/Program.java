@@ -1,4 +1,4 @@
-package anonymousCass;
+package anonymous;
 
 public class Program {
     public static void main(String[] args) {
@@ -7,6 +7,7 @@ public class Program {
 
     public Program() {
         ISay say = new ISay() {
+            @Override
             public void sayHello() {
                 System.out.println("helloHK2 world");
                 Program.this.sayGoodBye();
