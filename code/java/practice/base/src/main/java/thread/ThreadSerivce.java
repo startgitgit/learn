@@ -13,12 +13,12 @@ public class ThreadSerivce {
 
     private ThreadSerivce() {
         ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat("thread-pool-%d").build();
-        this.threadPoolExecutor = new ThreadPoolExecutor(5, 10, 200, TimeUnit.MILLISECONDS,
+        threadPoolExecutor = new ThreadPoolExecutor(5, 10, 200, TimeUnit.MILLISECONDS,
                 new ArrayBlockingQueue<Runnable>(5), threadFactory);
     }
 
     public void excute(Runnable task) {
-        this.threadPoolExecutor.execute(task);
+        threadPoolExecutor.execute(task);
         System.out.println(
                 "线程池中线程数目：" + threadPoolExecutor.getPoolSize()
                         + "，队列中等待执行的任务数目：" + threadPoolExecutor.getQueue().size()
@@ -29,6 +29,10 @@ public class ThreadSerivce {
 
     public static ThreadSerivce getInstance() {
         return INSTANCE;
+    }
+
+    public void shutdown() {
+        threadPoolExecutor.shutdown();
     }
 }
 

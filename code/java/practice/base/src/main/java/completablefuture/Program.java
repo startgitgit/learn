@@ -1,5 +1,7 @@
 package completablefuture;
-import org.jetbrains.annotations.NotNull;
+
+
+import thread.ThreadSerivce;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,17 +22,15 @@ public class Program {
 
 
     public static void main(String[] args) {
-//        completableFutureTest1();
-        System.out.println("start");
-        completableFutureTest2();
+        completableFutureTest1();
+//        completableFutureTest2();
 
-        System.out.println("end");
     }
 
     private static void completableFutureTest2() {
         CompletableFuture<Integer> future = CompletableFuture.
                 supplyAsync(Program::getInteger).thenApplyAsync(i -> i * 10).
-                whenComplete((i, e) -> System.out.println(e.getMessage()));
+                whenComplete((i, throwable) -> System.out.println(i));
 
         try {
             System.out.println(future.get());
@@ -40,7 +40,6 @@ public class Program {
 
     }
 
-    @NotNull
     private static Integer getInteger() {
         try {
             Thread.sleep(3000);
@@ -49,7 +48,7 @@ public class Program {
             e.printStackTrace();
         }
 
-        return null;
+        return 1;
     }
 
     private static void completableFutureTest1() {
@@ -67,14 +66,17 @@ public class Program {
 
     static CompletableFuture<Double> getPriceAsync() {
         CompletableFuture<Double> futurePrice = new CompletableFuture<>();
-        new Thread(() -> {
+        Runnable runnable = () -> {
             try {
-                Thread.sleep(50000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             futurePrice.complete(23.55);
-        }).start();
+        };
+        ThreadSerivce threadSerivce = ThreadSerivce.getInstance();
+        threadSerivce.excute(runnable);
+        threadSerivce.shutdown();
         return futurePrice;
     }
 
