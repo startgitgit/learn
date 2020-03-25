@@ -49,7 +49,7 @@ public class Program {
             e.printStackTrace();
         }
 
-        return 1 / 0;
+        return null;
     }
 
     private static void completableFutureTest1() {
