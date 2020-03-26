@@ -7,11 +7,11 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-public class ThreadSerivce {
+public class ThreadService {
     private ThreadPoolExecutor threadPoolExecutor;
-    private static final ThreadSerivce INSTANCE = new ThreadSerivce();
+    private static final ThreadService INSTANCE = new ThreadService();
 
-    private ThreadSerivce() {
+    private ThreadService() {
         ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat("thread-pool-%d").build();
         threadPoolExecutor = new ThreadPoolExecutor(5, 15, 200, TimeUnit.MILLISECONDS,
                 new ArrayBlockingQueue<Runnable>(5), threadFactory);
@@ -27,7 +27,7 @@ public class ThreadSerivce {
 
     }
 
-    public static ThreadSerivce getInstance() {
+    public static ThreadService getInstance() {
         return INSTANCE;
     }
 

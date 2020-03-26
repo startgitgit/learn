@@ -1,7 +1,7 @@
 package completablefuture;
 
 
-import thread.ThreadSerivce;
+import thread.ThreadService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,7 +17,7 @@ import java.util.concurrent.*;
  */
 public class AppFuture {
 
-    private static ThreadSerivce threadSerivce = ThreadSerivce.getInstance();
+    private static ThreadService threadService = ThreadService.getInstance();
 
     public Double completableFutureTest1() {
         CompletableFuture<Double> futurePrice = new CompletableFuture<>();
@@ -30,7 +30,7 @@ public class AppFuture {
             futurePrice.complete(23.55d);
         };
 
-        threadSerivce.excute(runnable);
+        threadService.excute(runnable);
 
         // do anything you want, 当前线程不被阻塞
         System.out.println(111);
@@ -77,7 +77,7 @@ public class AppFuture {
         // 结果集
         List<String> list = new ArrayList<>();
 //        ExecutorService executorService = Executors.newFixedThreadPool(10);
-        ThreadPoolExecutor threadPoolExecutor = threadSerivce.getThreadPoolExecutor();
+        ThreadPoolExecutor threadPoolExecutor = threadService.getThreadPoolExecutor();
         List<Integer> taskList = Arrays.asList(2, 1, 3, 4, 5, 6, 7, 8, 9, 10);
         // 全流式处理转换成CompletableFuture[]+组装成一个无返回值CompletableFuture，join等待执行完毕。返回结果whenComplete获取
         CompletableFuture[] completableFutures = taskList.stream()
