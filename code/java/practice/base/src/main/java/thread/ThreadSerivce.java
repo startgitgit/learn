@@ -13,7 +13,7 @@ public class ThreadSerivce {
 
     private ThreadSerivce() {
         ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat("thread-pool-%d").build();
-        threadPoolExecutor = new ThreadPoolExecutor(5, 10, 200, TimeUnit.MILLISECONDS,
+        threadPoolExecutor = new ThreadPoolExecutor(5, 15, 200, TimeUnit.MILLISECONDS,
                 new ArrayBlockingQueue<Runnable>(5), threadFactory);
     }
 
@@ -34,5 +34,10 @@ public class ThreadSerivce {
     public void shutdown() {
         threadPoolExecutor.shutdown();
     }
+
+    public ThreadPoolExecutor getThreadPoolExecutor() {
+        return threadPoolExecutor;
+    }
+
 }
 

@@ -7,10 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * @Author: zhouyq
@@ -19,6 +16,8 @@ import java.util.concurrent.Executors;
  * @Description
  */
 public class AppFuture {
+
+    private static ThreadSerivce threadSerivce = ThreadSerivce.getInstance();
 
     public Double completableFutureTest1() {
         CompletableFuture<Double> futurePrice = new CompletableFuture<>();
@@ -30,17 +29,15 @@ public class AppFuture {
             }
             futurePrice.complete(23.55d);
         };
-        ThreadSerivce threadSerivce = ThreadSerivce.getInstance();
-        threadSerivce.excute(runnable);
-        threadSerivce.shutdown();
 
-        //do anything you want, 当前线程不被阻塞
+        threadSerivce.excute(runnable);
+
+        // do anything you want, 当前线程不被阻塞
         System.out.println(111);
 
         //线程任务完成的话，执行回调函数，不阻塞后续操作
         futurePrice.whenComplete((aDouble, throwable) -> {
             System.out.println(aDouble);
-            //do something else
         });
 
         try {
@@ -75,15 +72,16 @@ public class AppFuture {
     }
 
 
-     void completableFutureTest3() {
+    void completableFutureTest3() {
         long start = System.currentTimeMillis();
         // 结果集
         List<String> list = new ArrayList<>();
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
+//        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        ThreadPoolExecutor threadPoolExecutor = threadSerivce.getThreadPoolExecutor();
         List<Integer> taskList = Arrays.asList(2, 1, 3, 4, 5, 6, 7, 8, 9, 10);
         // 全流式处理转换成CompletableFuture[]+组装成一个无返回值CompletableFuture，join等待执行完毕。返回结果whenComplete获取
         CompletableFuture[] completableFutures = taskList.stream()
-                .map(integer -> CompletableFuture.supplyAsync(() -> calc(integer), executorService)
+                .map(integer -> CompletableFuture.supplyAsync(() -> calc(integer), threadPoolExecutor)
                         .thenApply(h -> Integer.toString(h))
                         .whenComplete((s, e) -> {
                             System.out.println("任务" + s + "完成!result=" + s + "，异常 e=" + e + "," + new Date());
