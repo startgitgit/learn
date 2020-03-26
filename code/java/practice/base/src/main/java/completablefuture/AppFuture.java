@@ -91,7 +91,7 @@ public class AppFuture {
                         })
                 ).toArray(CompletableFuture[]::new);
         // 封装后无返回值，必须自己whenComplete()获取
-        java.util.concurrent.CompletableFuture.allOf(completableFutures).join();
+        CompletableFuture.allOf(completableFutures).join();
         System.out.println("list=" + list + ",耗时=" + (System.currentTimeMillis() - start));
     }
 
