@@ -1,4 +1,4 @@
-package fangxin;
+package Generics;
 
 import model.Person;
 

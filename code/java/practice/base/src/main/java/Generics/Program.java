@@ -1,4 +1,4 @@
-package fangxin;
+package Generics;
 
 import model.Apple;
 import model.Banana;
@@ -13,14 +13,14 @@ import java.util.List;
 public class Program {
 
     public static void main(String[] args) {
-        FX<Number> ex_num = new FX<Number>(100);
-        FX<Integer> ex_int = new FX<Integer>(200);
-        FX<String> ex_string = new FX<String>("helloHK2");
+        Application<Number> ex_num = new Application<Number>(100);
+        Application<Integer> ex_int = new Application<Integer>(200);
+        Application<String> ex_string = new Application<String>("helloHK2");
         getData(ex_num);
         getData(ex_int);//编译错误
         getData(ex_string);
 
-        System.out.println(FX.TEST);
+        System.out.println(Application.TEST);
 
         Erasure erasure = new Erasure(Person.class);
 
@@ -52,7 +52,7 @@ public class Program {
 
     }
 
-    public static void getData(FX<?> temp) { //此行若把Number换为“？”编译通过
+    public static void getData(Application<?> temp) { //此行若把Number换为“？”编译通过
         //do something...
     }
     public <T> T get(T obj) {
