@@ -1,4 +1,4 @@
-package Generics;
+package generics;
 
 public class Application<T> {
     public static final String TEST = "b";

@@ -1,4 +1,4 @@
-package Generics;
+package generics;
 
 import model.Apple;
 
