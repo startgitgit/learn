@@ -4,6 +4,7 @@ import model.Person;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * @Author: zhouyq
@@ -18,6 +19,8 @@ public class Program {
         peoples.add(new Person("bb",2));
         peoples.add(new Person("bb",12));
         Collections.sort(peoples);
+
+        peoples.sort(Comparator.comparingInt(Person::getAge));
         peoples.forEach(System.out::println);
     }
 }
