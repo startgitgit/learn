@@ -1,9 +1,12 @@
-package classTest;
+package classtest;
 
 import model.Apple;
 import model.Food;
 import model.Student;
 
+/**
+ * @author zhouyq
+ */
 public class ClassTest {
     public static void main(String[] args) {
         System.out.println(Food.class.isAssignableFrom(Apple.class));
