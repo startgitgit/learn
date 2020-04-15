@@ -14,6 +14,8 @@
     <jettyVersion>9.4.0.M1</jettyVersion>
     <servletVersion>3.1.0</servletVersion>
     <jsp.version>2.2</jsp.version>
+    <slf4j.version>1.7.21</slf4j.version>
+    <logback.version>1.1.7</logback.version>
   </properties>
 
 
@@ -101,6 +103,16 @@
       <version>1.18.12</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.21</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.21</version>
+    </dependency>
     <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-client</artifactId>

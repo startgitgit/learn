@@ -8,6 +8,7 @@ import javax.inject.Singleton;
 @Singleton
 public class MyServiceImpl implements MyService {
 
+    @Override
     public void helloHK2() {
         System.out.println("my helloHK2 hk2");
     }

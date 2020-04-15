@@ -10,6 +10,8 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.apache.commons.lang3.ArrayUtils;
 import org.skife.jdbi.v2.DBI;
+import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPoolConfig;
 
 import java.net.URL;
 import java.util.Objects;
@@ -39,10 +41,9 @@ public class ServicesApplication extends Application<ServicesConfiguration> {
         PositionDao positionDao = jdbi.onDemand(PositionDao.class);
 
 
-        /*JedisPoolConfig poolConfig = new JedisPoolConfig();
+        JedisPoolConfig poolConfig = new JedisPoolConfig();
         poolConfig.setMaxTotal(128);
         final JedisPool pool = new JedisPool(poolConfig,configuration.getRedisHost(), Integer.parseInt(configuration.getRedisPort()));
-     */
 
 
         environment.jersey().register(new PositionResource(positionDao));
