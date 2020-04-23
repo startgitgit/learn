@@ -9,6 +9,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class Program {
 
@@ -25,15 +26,16 @@ public class Program {
         Erasure erasure = new Erasure(Person.class);
 
         // 泛型数组创建
-
         Object result = Array.newInstance(Integer.class, 10);
 
         Arrays.fill((Integer[])result,20);
 
+        ArrayList<String> list1 = new ArrayList<>();
+        ArrayList<Integer> list2 = new ArrayList<>();
+        System.out.println(Objects.equals(list1,list2));
 
-        List<Integer> integers = Arrays.asList(1, 2, 3);
 
-        List<? extends  Number> aa = integers;
+        List<? extends  Number> aa = Arrays.asList(1, 2, 3);
 
         Number number = aa.get(0);
 
