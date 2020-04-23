@@ -23,9 +23,15 @@ public class Utils {
 
         // StringUtils
         System.out.println(StringUtils.equalsIgnoreCase("aa","aa"));
+        System.out.println(StringUtils.repeat("=",50));
+        System.out.println(StringUtils.center(" Customised Header ", 50, "%"));
+        System.out.println(StringUtils.center(" Customised Header ", 50, "="));
+        System.out.println(StringUtils.defaultString(null, "defaultValue"));
+        System.out.println(StringUtils.abbreviate("aaaaaaaaaaa",5));
 
         // IOUtils
         InputStream inputStream = IOUtils.toInputStream("aa", Charsets.UTF_8);
+
 
 
     }
