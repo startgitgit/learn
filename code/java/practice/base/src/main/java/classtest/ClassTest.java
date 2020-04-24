@@ -19,5 +19,6 @@ public class ClassTest {
         System.out.println(food instanceof  Apple);
         System.out.println(apple.getClass() instanceof Class<?>);
         System.out.println(Student.class.isInstance(apple));
+        System.out.println(int.class.isPrimitive());
     }
 }
