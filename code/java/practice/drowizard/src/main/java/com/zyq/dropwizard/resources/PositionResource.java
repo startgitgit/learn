@@ -3,6 +3,7 @@ package com.zyq.dropwizard.resources;
 
 import com.zyq.dropwizard.dao.PositionDao;
 import com.zyq.dropwizard.model.Position;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -21,7 +22,7 @@ public class PositionResource {
         this.positionDao = positionDao;
     }
 
-    @Path("/getposition")
+
     @GET
     public Response queryPositionById(@QueryParam("id") int id) {
         try {
@@ -62,6 +63,25 @@ public class PositionResource {
 
         try {
             positionDao.createPosition(position);
+            return Response
+                    .status(Response.Status.OK)
+                    .entity(position)
+                    .build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response
+                    .status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(e.getMessage())
+                    .build();
+        }
+    }
+
+
+    @Path("/getpositionbyidorname")
+    @GET
+    public Response queryPositionByIdOrName(@QueryParam("id") Integer id,@QueryParam("name") String name) {
+        try {
+            Position position = positionDao.queryPostionByIdOrName(id,StringUtils.wrap(name,"'"));
             return Response
                     .status(Response.Status.OK)
                     .entity(position)

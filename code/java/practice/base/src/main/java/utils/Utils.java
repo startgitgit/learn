@@ -28,6 +28,7 @@ public class Utils {
         System.out.println(StringUtils.center(" Customised Header ", 50, "="));
         System.out.println(StringUtils.defaultString(null, "defaultValue"));
         System.out.println(StringUtils.abbreviate("aaaaaaaaaaa",5));
+        System.out.println(StringUtils.wrap("hello","'"));
 
         // IOUtils
         InputStream inputStream = IOUtils.toInputStream("aa", Charsets.UTF_8);

@@ -7,17 +7,26 @@ import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.BindBean;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate;
+import org.skife.jdbi.v2.sqlobject.customizers.Define;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;
+import org.skife.jdbi.v2.sqlobject.stringtemplate.UseStringTemplate3StatementLocator;
 
 /**
  * @author zhouyq
  */
 @RegisterMapper(PositionMapper.class)
+@UseStringTemplate3StatementLocator
 public interface PositionDao {
     @SqlQuery("select * from position where id = :id")
     Position queryPostionById(@Bind("id") int id);
 
-//    @SqlUpdate("insert into position (id,name,createDate) values (:id,:name,:createDate) on duplicate key update name=:name")
+    //    @SqlUpdate("insert into position (id,name,createDate) values (:id,:name,:createDate) on duplicate key update name=:name")
     @SqlUpdate("replace into position (id,name,createDate) values (:id,:name,:createDate)")
     void createPosition(@BindBean Position position);
+
+
+    //    @SqlQuery("select * from position where <if(id)> id = <id> <else> name ='<name>' <endif>")
+    @SqlQuery
+    Position queryPostionByIdOrName(@Define("id") Integer id, @Define("name") String name);
+
 }
