@@ -25,7 +25,7 @@ public interface PositionDao {
     void createPosition(@BindBean Position position);
 
 
-    //    @SqlQuery("select * from position where <if(id)> id = <id> <else> name ='<name>' <endif>")
+    //    @SqlQuery("select * from position where <if(id)> id = <id> <else> name =<name> <endif>")
     @SqlQuery
     Position queryPostionByIdOrName(@Define("id") Integer id, @Define("name") String name);
 
