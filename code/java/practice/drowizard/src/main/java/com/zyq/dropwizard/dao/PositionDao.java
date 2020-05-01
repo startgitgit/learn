@@ -17,9 +17,12 @@ import java.util.List;
 /**
  * @author zhouyq
  */
+
+
 @RegisterMapper(PositionMapper.class)
 @UseStringTemplate3StatementLocator
 public interface PositionDao {
+
     @SqlQuery("select * from position where id = :id")
     Position queryPostionById(@Bind("id") int id);
 
@@ -30,9 +33,7 @@ public interface PositionDao {
 
     //    @SqlQuery("select * from position where <if(id)> id = <id> <else> name =<name> <endif>")
     @SqlQuery
-    Position queryPostionByIdOrName(@Define("id") Integer id, @Define("name") String name);
+    List<Position> queryPostions(@Define("id") Integer id, @BindIn("names") List<String> names);
 
-    @SqlQuery
-    List<Position> queryPostionsByNames(@BindIn("names") List<String> names);
 
 }

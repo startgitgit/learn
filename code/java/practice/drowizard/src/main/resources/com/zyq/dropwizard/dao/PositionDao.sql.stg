@@ -1,7 +1,7 @@
 group PositionDao;
 
-queryPostionByIdOrName(id,name) ::= <<
- select * from position where <if(id)> id = <id> <else> name =<name> <endif>
+queryPostions(id,names) ::= <<
+ select * from position where 1=1 <if(id)> and id = <id> <elseif(names)> and name in (<names>) <else> <endif>
 >>
 
 

@@ -7,21 +7,22 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import javax.ws.rs.core.*;
 import java.util.Arrays;
 import java.util.List;
 
 /**
  * @author zhouyq
  */
-@Path("position")
+@Path("positions")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class PositionResource {
     private PositionDao positionDao;
     private static final Logger LOGGER = LoggerFactory.getLogger(PositionResource.class);
+
     public PositionResource(PositionDao positionDao) {
         this.positionDao = positionDao;
     }
@@ -37,7 +38,7 @@ public class PositionResource {
                     .entity(position)
                     .build();
         } catch (Exception e) {
-            LOGGER.error(e.getMessage(),e);
+            LOGGER.error(e.getMessage(), e);
             return Response
                     .status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity(e.getMessage())
@@ -56,7 +57,7 @@ public class PositionResource {
                     .entity(position)
                     .build();
         } catch (Exception e) {
-            LOGGER.error(e.getMessage(),e);
+            LOGGER.error(e.getMessage(), e);
             return Response
                     .status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity(e.getMessage())
@@ -65,35 +66,21 @@ public class PositionResource {
     }
 
     @GET
-    public Response queryPositionByIdOrName(@QueryParam("id") Integer id,@QueryParam("name") String name) {
+    public Response queryPositions(@QueryParam("id") Integer id, @QueryParam("names") String names, @Context UriInfo ui, @Context HttpHeaders hh, @Context HttpServletRequest httpServletRequest) {
         try {
-            LOGGER.info("name:{}",name);
-            Position position = positionDao.queryPostionByIdOrName(id,StringUtils.wrap(name,"'"));
-            return Response
-                    .status(Response.Status.OK)
-                    .entity(position)
-                    .build();
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage(),e);
-            return Response
-                    .status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity(e.getMessage())
-                    .build();
-        }
-    }
+            LOGGER.info("name:{}", names);
+            List<String> nameList = null;
+            if (names != null) {
+                nameList = Arrays.asList(names.split(","));
+            }
 
-    @Path("/querypositionsbynames")
-    @GET
-    public Response queryPositionsByNames() {
-        try {
-            List<String> names = Arrays.asList("技术总监","软件工程师");
-            List<Position> positions = positionDao.queryPostionsByNames(names);
+            List<Position> positions = positionDao.queryPostions(id, nameList);
             return Response
                     .status(Response.Status.OK)
                     .entity(positions)
                     .build();
         } catch (Exception e) {
-            LOGGER.error(e.getMessage(),e);
+            LOGGER.error(e.getMessage(), e);
             return Response
                     .status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity(e.getMessage())
