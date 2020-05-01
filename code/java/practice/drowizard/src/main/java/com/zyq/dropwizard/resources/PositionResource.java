@@ -4,6 +4,8 @@ package com.zyq.dropwizard.resources;
 import com.zyq.dropwizard.dao.PositionDao;
 import com.zyq.dropwizard.model.Position;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -17,7 +19,7 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class PositionResource {
     private PositionDao positionDao;
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(PositionResource.class);
     public PositionResource(PositionDao positionDao) {
         this.positionDao = positionDao;
     }
@@ -32,7 +34,7 @@ public class PositionResource {
                     .entity(position)
                     .build();
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage(),e);
             return Response
                     .status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity(e.getMessage())
@@ -50,6 +52,7 @@ public class PositionResource {
                     .entity(position)
                     .build();
         } catch (Exception e) {
+            LOGGER.error(e.getMessage(),e);
             return Response
                     .status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity(e.getMessage())
@@ -68,7 +71,7 @@ public class PositionResource {
                     .entity(position)
                     .build();
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage(),e);
             return Response
                     .status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity(e.getMessage())
@@ -81,13 +84,14 @@ public class PositionResource {
     @GET
     public Response queryPositionByIdOrName(@QueryParam("id") Integer id,@QueryParam("name") String name) {
         try {
+            LOGGER.info("name:{}",name);
             Position position = positionDao.queryPostionByIdOrName(id,StringUtils.wrap(name,"'"));
             return Response
                     .status(Response.Status.OK)
                     .entity(position)
                     .build();
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage(),e);
             return Response
                     .status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity(e.getMessage())
