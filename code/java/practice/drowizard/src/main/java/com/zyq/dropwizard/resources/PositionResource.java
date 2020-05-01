@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author zhouyq
@@ -24,23 +26,6 @@ public class PositionResource {
         this.positionDao = positionDao;
     }
 
-
-    @GET
-    public Response queryPositionById(@QueryParam("id") int id) {
-        try {
-            Position position = positionDao.queryPostionById(id);
-            return Response
-                    .status(Response.Status.OK)
-                    .entity(position)
-                    .build();
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage(),e);
-            return Response
-                    .status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity(e.getMessage())
-                    .build();
-        }
-    }
 
     @Path("{id}")
     @GET
@@ -79,8 +64,6 @@ public class PositionResource {
         }
     }
 
-
-    @Path("/getpositionbyidorname")
     @GET
     public Response queryPositionByIdOrName(@QueryParam("id") Integer id,@QueryParam("name") String name) {
         try {
@@ -89,6 +72,25 @@ public class PositionResource {
             return Response
                     .status(Response.Status.OK)
                     .entity(position)
+                    .build();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(),e);
+            return Response
+                    .status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(e.getMessage())
+                    .build();
+        }
+    }
+
+    @Path("/querypositionsbynames")
+    @GET
+    public Response queryPositionsByNames() {
+        try {
+            List<String> names = Arrays.asList("技术总监","软件工程师");
+            List<Position> positions = positionDao.queryPostionsByNames(names);
+            return Response
+                    .status(Response.Status.OK)
+                    .entity(positions)
                     .build();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(),e);
