@@ -1,0 +1,5 @@
+group PositionDao;
+
+queryPostionByIdOrName(id,name) ::= <<
+ select * from position where <if(id)> id = <id> <else> name =<name> <endif>
+>>
