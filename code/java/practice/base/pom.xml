@@ -175,5 +175,14 @@
                 <version>${jettyVersion}</version>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/webapp/</directory>
+                <targetPath>webapp</targetPath>
+            </resource>
+            <resource>
+                <directory>src/main/resources/</directory>
+            </resource>
+        </resources>
     </build>
 </project>
