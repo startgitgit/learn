@@ -3,20 +3,21 @@ package jetty;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
 
+import java.util.Objects;
+
 public class SimpleServerStart {
     public static void main(String[] args) throws Exception {
         int port = 8080;
-        String webapp = "C:/Learn/mygithub/learn/code/java/practice/base/src/main/webapp";
+        ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
+        String webapp = Objects.requireNonNull(contextClassLoader.getResource("webapp")).getPath();
         Server server = new Server(port);
         WebAppContext webAppContext = new WebAppContext();
-
         webAppContext.setDescriptor(webapp + "/WEB-INF/web.xml");
         webAppContext.setResourceBase(webapp);
         webAppContext.setContextPath("/app");
         webAppContext.setConfigurationDiscovered(true);
         webAppContext.setParentLoaderPriority(true);
-
-        webAppContext.setClassLoader(Thread.currentThread().getContextClassLoader());
+        webAppContext.setClassLoader(contextClassLoader);
 
         server.setHandler(webAppContext);
         System.out.println(webAppContext.getContextPath());
