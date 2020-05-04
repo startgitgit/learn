@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @version 1.0
  * @date 2020/5/4 14:37
  */
-public class ReentrantLockTest3 {
+public class ReentrantLockInterrup {
     static Lock lock1 = new ReentrantLock();
     static Lock lock2 = new ReentrantLock();
 

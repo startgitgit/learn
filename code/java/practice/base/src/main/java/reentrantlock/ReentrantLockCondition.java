@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @version 1.0
  * @date 2020/5/4 14:37
  */
-public class ReentrantLockTest4 {
+public class ReentrantLockCondition {
     static Lock lock = new ReentrantLock();
     static Condition condition = lock.newCondition();
 

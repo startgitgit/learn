@@ -9,19 +9,19 @@ import java.util.concurrent.locks.ReentrantLock;
  * @version 1.0
  * @date 2020/5/4 13:53
  */
-public class ReentrantLockTest2 {
+public class ReentrantLockFair {
     private static final Lock LOCK = new ReentrantLock(true);
-    private static int num = 2;
 
     public static void main(String[] args) {
-        new Thread(ReentrantLockTest2::test, "线程A").start();
-        new Thread(ReentrantLockTest2::test, "线程B").start();
-        new Thread(ReentrantLockTest2::test, "线程C").start();
-        new Thread(ReentrantLockTest2::test, "线程D").start();
+        new Thread(ReentrantLockFair::test, "线程A").start();
+        new Thread(ReentrantLockFair::test, "线程B").start();
+        new Thread(ReentrantLockFair::test, "线程C").start();
+        new Thread(ReentrantLockFair::test, "线程D").start();
     }
 
     public static void test() {
         String threadName = Thread.currentThread().getName();
+        int num = 2;
         for (int i = 0; i < num; i++) {
             LOCK.lock();
             try {
