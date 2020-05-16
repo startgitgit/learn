@@ -11,4 +11,5 @@ import lombok.ToString;
 public class Student {
     private Integer no;
     private String name;
+    private Double score;
 }

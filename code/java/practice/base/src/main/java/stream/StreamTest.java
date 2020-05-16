@@ -43,8 +43,10 @@ public class StreamTest {
         System.out.println(sum1.get());
 
 
-        List<Student> studentList = Arrays.asList(Student.builder().name("zhouyq").no(1).build(), Student.builder().name("dingding").no(2).build());
+        List<Student> studentList = Arrays.asList(Student.builder().name("zhouyq").no(1).score(10D).build(), Student.builder().name("zhouyq").no(1).score(100D).build(),Student.builder().name("dingding").no(2).score(20D).build());
         Map<String, List<Student>> collect = studentList.stream().collect(Collectors.groupingBy(Student::getName));
+        Map<String, Double> collect1 = studentList.stream().collect(Collectors.groupingBy(Student::getName, Collectors.averagingDouble(Student::getScore)));
+        Map<Boolean, List<Student>> collect2 = studentList.stream().collect(Collectors.partitioningBy(student -> student.getScore() > 20));
 
     }
 }
