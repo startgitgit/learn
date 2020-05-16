@@ -1,5 +1,7 @@
 package stream;
 
+import model.Student;
+
 import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
@@ -39,6 +41,10 @@ public class StreamTest {
             }
         });
         System.out.println(sum1.get());
+
+
+        List<Student> studentList = Arrays.asList(Student.builder().name("zhouyq").no(1).build(), Student.builder().name("dingding").no(2).build());
+        Map<String, List<Student>> collect = studentList.stream().collect(Collectors.groupingBy(Student::getName));
 
     }
 }
