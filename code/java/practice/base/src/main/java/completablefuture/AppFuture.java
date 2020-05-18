@@ -50,8 +50,8 @@ public class AppFuture {
 
     public void completableFutureTest2() {
         CompletableFuture<Integer> future = CompletableFuture.
-                supplyAsync(AppFuture::getInteger).thenApplyAsync(i -> i * 10).
-                whenComplete((i, throwable) -> System.out.println(i));
+                supplyAsync(AppFuture::getInteger).thenApplyAsync(i -> i /0).
+                whenComplete((i, throwable) -> System.out.println("result:" + i));
         try {
             System.out.println(future.get());
         } catch (InterruptedException | ExecutionException e) {
@@ -99,6 +99,7 @@ public class AppFuture {
                 Thread.sleep(3000);
             } else if (i == 5) {
                 Thread.sleep(5000);
+                return 5/0;
             } else {
                 Thread.sleep(1000);
             }
