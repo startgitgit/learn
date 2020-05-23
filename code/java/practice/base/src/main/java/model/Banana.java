@@ -7,4 +7,7 @@ package model;
  * @Description
  */
 public class Banana extends Fruit {
+    public Banana(String name, String name1) {
+        super(name, name1);
+    }
 }

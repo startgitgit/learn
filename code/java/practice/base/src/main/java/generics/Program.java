@@ -47,9 +47,9 @@ public class Program {
         list.add(1.0);
 
         List<? super Fruit> fruits = new ArrayList<>();
-        fruits.add(new Apple());
-        fruits.add(new Banana());
-        fruits.add(new Fruit());
+        fruits.add(new Apple("super apple","apple"));
+        fruits.add(new Banana("super banana","banana"));
+        fruits.add(new Fruit("super fruit","fruit"));
 
 
     }

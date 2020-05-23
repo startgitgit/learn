@@ -7,4 +7,9 @@ package model;
  * @Description
  */
 public class Food {
+    protected String name;
+    protected String type;
+    public Food(String name) {
+        this.name = name;
+    }
 }
