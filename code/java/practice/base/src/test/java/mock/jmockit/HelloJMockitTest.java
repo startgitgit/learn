@@ -1,12 +1,10 @@
-package jmockit;
+package mock.jmockit;
 
 import mockit.Expectations;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Locale;
-
-import static org.junit.Assert.*;
 
 /**
  * @author zhouyq

@@ -1,4 +1,4 @@
-package jmockit;
+package mock.jmockit;
 
 /**
  * @author zhouyq

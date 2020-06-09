@@ -1,11 +1,9 @@
-package jmockit;
+package mock.jmockit;
 
 import mockit.Expectations;
 import mockit.Mocked;
 import mockit.Verifications;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * @author zhouyq

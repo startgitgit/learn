@@ -21,8 +21,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jmockit</groupId>
-            <artifactId>jmockit</artifactId>
+            <groupId>org.mock.jmockit</groupId>
+            <artifactId>mock.jmockit</artifactId>
             <version>1.41</version>
             <scope>test</scope>
         </dependency>
@@ -172,8 +172,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.easymock</groupId>
-            <artifactId>easymock</artifactId>
+            <groupId>org.mock.jmockit.easymock</groupId>
+            <artifactId>mock.jmockit.easymock</artifactId>
             <version>3.2</version>
             <scope>test</scope>
         </dependency>
