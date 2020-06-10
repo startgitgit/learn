@@ -1,5 +1,6 @@
 package mock.jmockit;
 
+import mock.HelloJMockit;
 import mockit.Expectations;
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package mock.jmockit;
+package mock;
 
 import java.util.Locale;
 

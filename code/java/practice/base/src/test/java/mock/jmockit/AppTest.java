@@ -1,5 +1,6 @@
 package mock.jmockit;
 
+import mock.App;
 import mockit.Expectations;
 import mockit.Mocked;
 import mockit.Verifications;
