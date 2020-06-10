@@ -1,7 +1,7 @@
-package mock.jmockit.easymock;
+package mock.easymock;
 
-import mock.easymock.UserDao;
-import mock.easymock.UserServiceImpl;
+import mock.UserDao;
+import mock.UserServiceImpl;
 import model.User;
 import org.easymock.EasyMock;
 import org.junit.Test;

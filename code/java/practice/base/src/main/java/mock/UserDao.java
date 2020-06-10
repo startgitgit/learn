@@ -1,4 +1,4 @@
-package mock.easymock;
+package mock;
 
 import model.User;
 
