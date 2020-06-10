@@ -23,7 +23,7 @@ public class UserServiceImplTest {
     private User expectUser = new User("zhouyanqing", 19);
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         userDao = mock(UserDao.class);
         when(userDao.getByName("zhouyanqing")).thenReturn(expectUser);
         userService = new UserServiceImpl();
@@ -32,7 +32,7 @@ public class UserServiceImplTest {
 
 
     @Test
-    public void query() throws Exception {
+    public void query() {
         User user = userService.query("zhouyanqing");
         assertEquals(expectUser, user);
         //验证是否执行过一次getByName("zhouyanqing")
@@ -41,10 +41,8 @@ public class UserServiceImplTest {
     }
 
     @Test
-    public void queryNotFound() throws Exception {
+    public void queryNotFound() {
         User user = userService.query("zhouyanqing1");
         assertNotEquals(expectUser, user);
-
-
     }
 }

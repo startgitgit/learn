@@ -16,8 +16,8 @@ import static org.junit.Assert.*;
 public class UserServiceImplTest {
 
     @Test
-    public void query() throws Exception {
-        User expectUser = new User("zhouyanqing",19);
+    public void query()  {
+        User expectUser = new User("zhouyanqing", 19);
         UserDao mock = EasyMock.createMock(UserDao.class);
         EasyMock.expect(mock.getByName("zhouyanqing")).andReturn(expectUser);
         EasyMock.replay(mock);
@@ -25,13 +25,8 @@ public class UserServiceImplTest {
         UserServiceImpl userService = new UserServiceImpl();
         userService.setDao(mock);
         User user = userService.query("zhouyanqing");
-        assertEquals(expectUser,user);
+        assertEquals(expectUser, user);
         EasyMock.verify(mock);
-
-        EasyMock.expect(mock.getByName("zhouyanqing")).andThrow(new RuntimeException());
-//        assertEquals(expectUser,user);
-        EasyMock.verify(mock);
-
 
 
     }

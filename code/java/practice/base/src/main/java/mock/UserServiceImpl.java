@@ -10,12 +10,8 @@ import model.User;
 public class UserServiceImpl {
     private UserDao dao;
 
-    public User query(String name) throws Exception {
-        try {
-            return dao.getByName(name);
-        } catch (Exception e) {
-            throw e;
-        }
+    public User query(String name) {
+        return dao.getByName(name);
     }
 
     public void setDao(UserDao userDao) {
