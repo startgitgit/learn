@@ -1,4 +1,4 @@
-package hutool;
+package utils.hutool;
 
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.date.BetweenFormater;
