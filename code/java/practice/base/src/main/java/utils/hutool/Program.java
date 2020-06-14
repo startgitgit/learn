@@ -6,6 +6,7 @@ import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.date.TimeInterval;
 import cn.hutool.core.util.IdUtil;
+import cn.hutool.core.util.PageUtil;
 import cn.hutool.crypto.SecureUtil;
 
 import java.util.Date;
@@ -63,6 +64,11 @@ public class Program {
 
         String zhouyq = SecureUtil.md5("zhouyq");
         System.out.println(zhouyq);
+
+        // PageUtil
+        int[] startEnd1 = PageUtil.transToStartEnd(0, 10);//[0, 10]
+        int[] startEnd2 = PageUtil.transToStartEnd(1, 10);//[10, 20]
+        int totalPage = PageUtil.totalPage(20, 3);//7
 
 
     }
