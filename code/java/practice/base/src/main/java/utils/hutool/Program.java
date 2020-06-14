@@ -70,6 +70,13 @@ public class Program {
         int[] startEnd2 = PageUtil.transToStartEnd(1, 10);//[10, 20]
         int totalPage = PageUtil.totalPage(20, 3);//7
 
+        //分页彩虹算法
+        //上一页 3 4 [5] 6 7 8 下一页.
+        //参数意义分别为：当前页、总页数、每屏展示的页数
+        int[] rainbow = PageUtil.rainbow(5, 20, 6);
+        //结果：[3, 4, 5, 6, 7, 8]
+
+
 
     }
 }
