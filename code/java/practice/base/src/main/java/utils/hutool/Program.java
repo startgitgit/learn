@@ -6,8 +6,11 @@ import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.date.TimeInterval;
 import cn.hutool.core.util.IdUtil;
+import cn.hutool.crypto.SecureUtil;
 
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author zhouyq
@@ -57,6 +60,10 @@ public class Program {
 
         String e = "2017-05-06";
         Date value = Convert.toDate(e);
+
+        String zhouyq = SecureUtil.md5("zhouyq");
+        System.out.println(zhouyq);
+
 
     }
 }
