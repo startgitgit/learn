@@ -5,6 +5,7 @@ import com.google.common.cache.*;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Multimap;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.Arrays;
 import java.util.List;
@@ -88,6 +89,14 @@ public class Program {
                 Object.class, String.class, Number.class, Long.class);
         Iterable<Class<?>> filter = Iterables.filter(classes, Predicates.subtypeOf(Number.class));
         filter.forEach(x -> System.out.println(x.getName()));
+
+        // 元组使用
+        Pair<String, Integer> zhouyanqing = Pair.of("zhouyanqing", 18);
+        System.out.println(zhouyanqing);
+        System.out.println(zhouyanqing.getKey());
+        System.out.println(zhouyanqing.getValue());
+        System.out.println(zhouyanqing.getLeft());
+        System.out.println(zhouyanqing.getRight());
 
 
     }
