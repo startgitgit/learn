@@ -3,6 +3,7 @@ package map;
 import org.intellij.lang.annotations.Language;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @Author: zhouyq
@@ -34,6 +35,14 @@ public class MapSet {
         for (String string : strings) {
             System.out.println(string);
         }
+
+        ConcurrentHashMap<String,String> ch = new ConcurrentHashMap<>();
+        ch.put("a","a");
+        ch.put("b","b");
+        ch.entrySet().removeIf(x->Objects.equals(x.getValue(),"a"));
+        System.out.println(ch.size());
+
+        System.out.println(16 >>> 4);
 
 
     }
