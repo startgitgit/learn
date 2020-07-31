@@ -66,7 +66,7 @@ PUT test/_mapping/data
 # 查看映射字段
 GET test/_mapping
 
-#fulk增加增加数据ovr增加数据数据
+#增加数据
 POST test/data
 {
   "name":"zhouyanqing"
