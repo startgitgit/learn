@@ -34,7 +34,7 @@ import org.apache.spark.streaming.{Seconds, StreamingContext}
   * `$ bin/run-example org.apache.spark.examples.streaming.NetworkWordCount localhost 9999`
   */
 object NetworkWordCount {
-  val sparkConf = new SparkConf().setAppName("NetworkWordCount")
+  val sparkConf: SparkConf = new SparkConf().setAppName("NetworkWordCount")
   val ssc = new StreamingContext(sparkConf, Seconds(10))
 
   def main(args: Array[String]) {
