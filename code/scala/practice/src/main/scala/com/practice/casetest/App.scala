@@ -1,4 +1,4 @@
-package casetest
+package com.practice.casetest
 
 /**
  * @author zhouyq
