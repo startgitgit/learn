@@ -89,4 +89,3 @@ object DirectKafkaWordCount {
   }
 }
 
-// scalastyle:on println
