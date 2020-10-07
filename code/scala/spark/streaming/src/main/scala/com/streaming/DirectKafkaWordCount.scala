@@ -23,15 +23,15 @@ import org.apache.spark.streaming._
 import org.apache.spark.streaming.kafka010._
 
 /**
-  * Consumes messages from one or more topics in Kafka and does wordcount.
-  * Usage: DirectKafkaWordCount <brokers> <topics>
-  * <brokers> is a list of one or more Kafka brokers
-  * <topics> is a list of one or more kafka topics to consume from
-  *
-  * Example:
-  * $ bin/run-example streaming.DirectKafkaWordCount broker1-host:port,broker2-host:port \
-  * topic1,topic2
-  */
+ * Consumes messages from one or more topics in Kafka and does wordcount.
+ * Usage: DirectKafkaWordCount <brokers> <topics>
+ * <brokers> is a list of one or more Kafka brokers
+ * <topics> is a list of one or more kafka topics to consume from
+ *
+ * Example:
+ * $ bin/run-example streaming.DirectKafkaWordCount broker1-host:port,broker2-host:port \
+ * topic1,topic2
+ */
 object DirectKafkaWordCount {
   def main(args: Array[String]) {
     if (args.length < 2) {
@@ -65,21 +65,28 @@ object DirectKafkaWordCount {
     val lines = messages.map(_.value)
     val words = lines.flatMap(_.split(" "))
     val wordCounts = words.map(x => (x, 1L))
-    val maxRecord = wordCounts.reduce((a,b) => {
-      if(a._2 > b._2) a else b
+    val maxRecord = wordCounts.reduce((a, b) => {
+      if (a._2 > b._2) a else b
     })
-
-
 
 
     val time = maxRecord.count()
     val wordCounts1 = wordCounts.transform(rdd => {
-      val a = rdd.distinct().map(_._2)
+      val value = rdd.distinct().map {
+        x => x._2
+      }
+      value
 
-      a
     }
     )
     wordCounts1.foreachRDD(rdd => {
+      rdd.foreachPartition {
+        x =>
+          val list = {
+            x.map { x => x + 1 }
+          }.toList
+          println(list)
+      }
       val arr = rdd.collect()
     })
 
