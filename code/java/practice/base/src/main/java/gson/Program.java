@@ -44,6 +44,7 @@ public class Program {
 
         String str1 = GSON.toJson(a);
         System.out.println(str1);
+        System.out.println(GSON.toJson(new Date()));
 
 
         //GsonBuilder可以
