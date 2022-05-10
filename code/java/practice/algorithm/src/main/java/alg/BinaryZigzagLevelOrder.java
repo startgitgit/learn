@@ -12,9 +12,9 @@ public class BinaryZigzagLevelOrder {
         LinkedList<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
+            ArrayList<Integer> tmp = new ArrayList<>();
             int size = queue.size();
             for (int i = 0; i < size; i++) {
-                ArrayList<Integer> tmp = new ArrayList<>();
                 TreeNode node = queue.poll();
                 if ((res.size() + 1) % 2 == 0) {
                     tmp.add(0, node.value);
@@ -27,8 +27,8 @@ public class BinaryZigzagLevelOrder {
                 if (node.right != null) {
                     queue.add(node.right);
                 }
-                res.add(tmp);
             }
+            res.add(tmp);
         }
         return res;
     }

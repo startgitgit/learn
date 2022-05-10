@@ -5,11 +5,20 @@ import cn.hutool.core.date.BetweenFormater;
 import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.date.TimeInterval;
+import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.lang.ClassScanner;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.PageUtil;
 import cn.hutool.crypto.SecureUtil;
+import cn.hutool.crypto.symmetric.AES;
+import cn.hutool.crypto.symmetric.SymmetricAlgorithm;
+import lombok.val;
 
+import java.io.File;
 import java.util.Date;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -75,6 +84,25 @@ public class Program {
         //参数意义分别为：当前页、总页数、每屏展示的页数
         int[] rainbow = PageUtil.rainbow(5, 20, 6);
         //结果：[3, 4, 5, 6, 7, 8]
+
+
+        String content = "test中文";
+
+//随机生成密钥
+        byte[] key = SecureUtil.generateKey(SymmetricAlgorithm.AES.getValue()).getEncoded();
+
+//构建
+        AES aes = SecureUtil.aes(key);
+        String s = aes.encryptBase64(content);
+        System.out.println(s);
+
+        Set<Class<?>> utils = ClassScanner.scanPackage("utils");
+        System.out.println(utils);
+
+        List<File> files = FileUtil.loopFiles("D:\\zyq\\learn\\mygithub\\learn\\code");
+        for(File file:files){
+            System.out.println(file.getAbsolutePath());
+        }
 
 
 
